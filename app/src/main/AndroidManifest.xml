@@ -19,7 +19,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-      <!--  <activity android:name=".OptionPopup"></activity>-->
+        <!-- <activity android:name=".OptionPopup"></activity> -->
+        <activity
+            android:name=".ChooseLevel"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".LevelOneActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".LevelTwoActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".LevelThreeActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".LevelFourActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

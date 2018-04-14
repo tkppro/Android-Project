@@ -20,6 +20,7 @@ public class SaveStatus {
     public void setMusicStatus(String status){
        edit.putString("music",status);
        edit.commit();
+
     }
 
     public String getMusicStatus(){
@@ -29,6 +30,7 @@ public class SaveStatus {
     public void setSoundStatus(String status){
        edit.putString("sound",status);
        edit.commit();
+
     }
 
     public String getSoundStatus(){
@@ -37,9 +39,9 @@ public class SaveStatus {
 
     public int changeStringToStatus(String status){
         if(status.equals("on"))
-         return View.VISIBLE;
+            return View.VISIBLE;
 
-        return View.INVISIBLE;
+        return View.VISIBLE;
     }
 
     public String changeStatusToString(int status){

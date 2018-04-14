@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_chooselevel"
+    android:orientation="vertical"
+    tools:context="sourcecode.thangdang.finalproject.ChooseLevel">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose level"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textColor="#2ec287"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Level 1"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="#ff1111"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Level 2"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="#317ad9"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Level 3"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="#cc4bae4a"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Level 4"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Level 5"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5">
+
+        <Button
+            android:id="@+id/btn_level_one"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/bathroom" />
+
+        <Button
+            android:id="@+id/btn_level_two"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/kitchen_level"
+            />
+
+        <Button
+            android:id="@+id/btn_level_three"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/livingroom_level"
+            />
+        <Button
+            android:id="@+id/btn_level_four"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/bedroom_level"
+            />
+        <Button
+            android:id="@+id/btn_level_five"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            />
+
+    </LinearLayout>
+</LinearLayout>

@@ -2,6 +2,7 @@ package sourcecode.thangdang.finalproject;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.btn_play:
                 sound.playSound(R.raw.button_effect);
+                Intent intent =  new Intent(this,ChooseLevel.class);
+                this.startActivity(intent);
                 break;
             case R.id.btn_home:
                 sound.playSound(R.raw.button_effect);
@@ -166,14 +169,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 if(mBtnSoundOff.getVisibility() == View.VISIBLE) {
                     saveGameStatus.setSoundStatus(saveGameStatus.changeStatusToString(View.VISIBLE));
-                    Log.d("btn","check" +" sound off:" + saveGameStatus.getMusicStatus());
+                    Log.d("btn","check" +" sound off:" + saveGameStatus.getSoundStatus());
                     sound.setMuted(true);
                 }
                 if(mBtnSoundOff.getVisibility() == View.INVISIBLE) {
                     saveGameStatus.setSoundStatus(saveGameStatus.changeStatusToString(View.INVISIBLE));
-                    Log.d("btn","check" +" sound on:" + saveGameStatus.getMusicStatus());
+                    Log.d("btn","check" +" sound on:" + saveGameStatus.getSoundStatus());
                     sound.setMuted(false);
                 }
+
             }
         });
 

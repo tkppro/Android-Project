@@ -37,6 +37,14 @@ public class SaveStatus {
         return pre.getString("sound","on");
     }
 
+    public boolean isSoundOn(){
+        return getSoundStatus().equals("on");
+    }
+
+    public boolean isMusicOn(){
+        return getMusicStatus().equals("on");
+    }
+
     public int changeStringToStatus(String status){
         if(status.equals("on"))
             return View.VISIBLE;

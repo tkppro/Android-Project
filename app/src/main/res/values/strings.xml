@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FinalProject</string>
+    <string name="item_1_lv1">Đây là cái bàn chải đánh răng</string>
+    <string name="item_2_lv1">Đây là cái bồn cầu</string>
+    <string name="item_3_lv1">Đây là cái gương</string>
+    <string name="item_4_lv1">Đây là cái bồn rửa tay</string>
 </resources>

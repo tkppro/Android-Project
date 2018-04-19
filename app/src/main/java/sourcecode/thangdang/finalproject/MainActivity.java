@@ -35,13 +35,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         saveGameStatus = new SaveStatus(getSharedPreferences("game status",MODE_PRIVATE));
+
         song= MediaPlayer.create(MainActivity.this,R.raw.home_sound);
         song.setLooping(true);
+        if(saveGameStatus.isMusicOn())
         song.start();
+
         sound = SoundManager.getInstance();
         sound.init(this);
         init();
         setClickListener();
+
+
 
     }
 
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 sound.playSound(R.raw.button_effect);
                 Intent intent =  new Intent(this,ChooseLevel.class);
                 this.startActivity(intent);
+                song.stop();
                 break;
             case R.id.btn_home:
                 sound.playSound(R.raw.button_effect);
@@ -94,10 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         song.isPlaying();
         dialog.show();
 
-//        mainLayout = (ConstraintLayout)findViewById(R.id.layout_main);
-//        LayoutInflater inflater = getLayoutInflater();
-//        myLayout = inflater.inflate(R.layout.activity_option_popup, mainLayout, false);
-
         mBtnExitOps = (Button)dialog.findViewById(R.id.btn_exit_option);
         mBtnMusicOn = (Button)dialog.findViewById(R.id.btn_music_option_on);
         mBtnMusicOff = (Button)dialog.findViewById(R.id.btn_music_option_off);
@@ -107,10 +109,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Log.d("check","music status: " + saveGameStatus.getMusicStatus() + " " + "sound status: " + saveGameStatus.getSoundStatus());
 
-        mBtnSoundOn.setVisibility(saveGameStatus.changeStringToStatus(saveGameStatus.getSoundStatus()));
-        mBtnSoundOff.setVisibility(saveGameStatus.changeStringToStatus(saveGameStatus.getSoundStatus()));
-        mBtnMusicOn.setVisibility(saveGameStatus.changeStringToStatus(saveGameStatus.getMusicStatus()));
-        mBtnMusicOff.setVisibility(saveGameStatus.changeStringToStatus(saveGameStatus.getMusicStatus()));
+        if(saveGameStatus.isSoundOn()){
+            mBtnSoundOn.setVisibility(View.VISIBLE);
+            mBtnSoundOff.setVisibility(View.INVISIBLE);
+        }
+        else {
+            mBtnSoundOn.setVisibility(View.INVISIBLE);
+            mBtnSoundOff.setVisibility(View.VISIBLE);
+        }
+
+        if(saveGameStatus.isMusicOn()){
+            mBtnMusicOn.setVisibility(View.VISIBLE);
+            mBtnMusicOff.setVisibility(View.INVISIBLE);
+        }
+        else {
+            mBtnMusicOn.setVisibility(View.INVISIBLE);
+            mBtnMusicOff.setVisibility(View.VISIBLE);
+        }
+
 
         mBtnExitOps.setOnClickListener(new View.OnClickListener() {
             @Override

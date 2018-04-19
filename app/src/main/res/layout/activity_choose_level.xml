@@ -23,7 +23,6 @@
         android:weightSum="5">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -32,8 +31,8 @@
             android:textSize="20dp"
             android:textColor="#ff1111"
             />
-        <TextView
 
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -83,14 +82,14 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:background="@drawable/bathroom" />
+            android:background="@drawable/bathroom_level_select" />
 
         <Button
             android:id="@+id/btn_level_two"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:background="@drawable/kitchen_level"
+            android:background="@drawable/kitchen"
             />
 
         <Button
@@ -98,14 +97,14 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:background="@drawable/livingroom_level"
+            android:background="@drawable/living_room"
             />
         <Button
             android:id="@+id/btn_level_four"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:background="@drawable/bedroom_level"
+            android:background="@drawable/bed_room"
             />
         <Button
             android:id="@+id/btn_level_five"
@@ -113,6 +112,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:clickable="false"
+            android:background="@drawable/zoo"
             />
 
     </LinearLayout>

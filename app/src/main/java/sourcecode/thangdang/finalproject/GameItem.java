@@ -13,14 +13,18 @@ import android.widget.Button;
 
 public class GameItem {
     private Button mButton;
-    private boolean isTouching;
     private String text;
     Dialog dialog;
-
-    public GameItem(Button mButton, String text) {
+    private SoundManager sound;
+    private int idSound;
+    Context context;
+    public GameItem(Context context, Button mButton, String text, int idSound) {
         this.mButton = mButton;
-        this.isTouching = false;
         this.text = text;
+        sound = SoundManager.getInstance();
+        sound.init(context);
+        this.idSound = idSound;
+        this.context = context;
     }
 
     public Button getmButton() {
@@ -31,12 +35,14 @@ public class GameItem {
         this.mButton = mButton;
     }
 
-    public void isTouching(Context context) {
-        dialog = new Dialog(context);
-       // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setTitle(text);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
+    public void isTouching() {
+
+        sound.playSound(idSound);
+//        dialog = new Dialog(context);
+//       // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setTitle(text);
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        dialog.show();
     }
 
     public String getText() {
@@ -47,7 +53,4 @@ public class GameItem {
         this.text = text;
     }
 
-    public void setTouching(boolean touching) {
-        isTouching = touching;
-    }
 }

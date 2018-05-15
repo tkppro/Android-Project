@@ -43,6 +43,12 @@ public class SoundManager {
         _instance.initStreamTypeMedia((Activity)context);
         _instance.addSound(R.raw.home_sound);
         _instance.addSound(R.raw.button_effect);
+        _instance.addSound(R.raw.sink);
+        _instance.addSound(R.raw.mirror);
+        _instance.addSound(R.raw.toilet);
+        _instance.addSound(R.raw.tooth_brush);
+
+
         // add sounds here
 
     }

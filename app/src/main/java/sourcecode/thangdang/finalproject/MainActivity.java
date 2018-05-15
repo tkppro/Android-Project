@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         saveGameStatus = new SaveStatus(getSharedPreferences("game status",MODE_PRIVATE));
 
         song= MediaPlayer.create(MainActivity.this,R.raw.home_sound);
@@ -45,18 +44,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sound.init(this);
         init();
         setClickListener();
-
-
-
     }
-
 
     public void init(){
         mBtnPlay = (Button)findViewById(R.id.btn_play);
         mBtnHome = (Button)findViewById(R.id.btn_home);
         mBtnHelp = (Button)findViewById(R.id.btn_help);
         mBtnOption = (Button)findViewById(R.id.btn_option);
-
     }
 
     public void setClickListener(){
@@ -64,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnOption.setOnClickListener(this);
         mBtnHelp.setOnClickListener(this);
         mBtnHome.setOnClickListener(this);
-
     }
 
     @Override
@@ -95,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.activity_option_popup);
-
+        dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         song.isPlaying();
         dialog.show();

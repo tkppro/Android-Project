@@ -93,8 +93,12 @@ public class ChooseLevel extends AppCompatActivity implements View.OnClickListen
         // Check which request we're responding to
         if (requestCode == Configs.REQ_CODE_CHOOSE_LEVEL) {
             // Make sure the request was successful
-           canAccessLevel2 = data.getBooleanExtra("package",false);
-           Log.d("check","lv2: " + canAccessLevel2);
+            try {
+                canAccessLevel2 = data.getBooleanExtra("package",false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }

@@ -164,7 +164,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
             public void onFinish() {
                 mTvCountTime.setText("You lose! Click back to exit.");
                 song.stop();
-                gameStop();
+                if(!isFinish)
+                    gameStop();
 
             }
         };
@@ -209,20 +210,22 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
         dialog.setContentView(R.layout.win_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCanceledOnTouchOutside(false);
-        if (!isFinishing())
+        if (!isFinishing()) {
             dialog.show();
-
+            isFinish = true;
+        }
         Button btnReplay = (Button) dialog.findViewById(R.id.btn_replay);
         Button btnNextLevel = (Button) dialog.findViewById(R.id.btn_next);
-        btnReplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stopTime();
-                gameStart();
-                dialog.dismiss();
-
-            }
-        });
+        //need to change to back to menu button insteads of replay button
+//        btnReplay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //stopTime();
+//                gameStart();
+//                dialog.dismiss();
+//
+//            }
+//        });
 
         btnNextLevel.setOnClickListener(new View.OnClickListener() {
             @Override

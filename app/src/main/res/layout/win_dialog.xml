@@ -12,13 +12,13 @@
 
 
     <Button
-        android:id="@+id/btn_replay"
+        android:id="@+id/btn_menu"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="204dp"
-        android:background="@drawable/replay_btn"
+        android:background="@drawable/menu_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

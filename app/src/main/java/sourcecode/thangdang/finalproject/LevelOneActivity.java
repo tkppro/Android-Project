@@ -214,18 +214,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
             dialog.show();
             isFinish = true;
         }
-        Button btnReplay = (Button) dialog.findViewById(R.id.btn_replay);
+        Button btnMenu = (Button) dialog.findViewById(R.id.btn_menu);
         Button btnNextLevel = (Button) dialog.findViewById(R.id.btn_next);
         //need to change to back to menu button insteads of replay button
-//        btnReplay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //stopTime();
-//                gameStart();
-//                dialog.dismiss();
-//
-//            }
-//        });
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isTheGameFinish();
+                dialog.dismiss();
+
+            }
+        });
 
         btnNextLevel.setOnClickListener(new View.OnClickListener() {
             @Override

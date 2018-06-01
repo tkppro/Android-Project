@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_option:
                 sound.playSound(R.raw.button_effect);
-                //dialogOption();
+                dialogOption();
                 //alertBuilder();
                 break;
             case R.id.btn_ranking:

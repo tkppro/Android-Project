@@ -5,5 +5,8 @@ package sourcecode.thangdang.finalproject;
  */
 
 public class Configs {
-    public static final int REQ_CODE_CHOOSE_LEVEL = 1;
+    public static final int REQ_CODE_CHOOSE_LEVEL_ONE = 1;
+    public static final int REQ_CODE_CHOOSE_LEVEL_TWO = 2;
+    public static final int REQ_CODE_CHOOSE_LEVEL_THREE = 3;
+    public static final int REQ_CODE_CHOOSE_LEVEL_FOUR = 4;
 }

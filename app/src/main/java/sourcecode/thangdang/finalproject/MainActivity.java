@@ -1,7 +1,9 @@
 package sourcecode.thangdang.finalproject;
 
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -10,35 +12,52 @@ import android.media.MediaPlayer;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button mBtnPlay, mBtnHelp, mBtnOption, mBtnHome;
+    private Button mBtnPlay, mBtnHelp, mBtnOption, mBtnHome, mBtnRanking;
     SoundManager sound;
-//    Dialog dialog;
     MediaPlayer song;
     SaveStatus saveGameStatus;
-//    ConstraintLayout mainLayout;
-//    View myLayout;
-
+    private ListView mLvResult;
+    ArrayList<Ranking> lists = new ArrayList<>();
+    private static RankingAdapter rankingAdapter;
+    private MyDatabase db;
     private Button mBtnExitOps, mBtnSoundOn, mBtnSoundOff, mBtnMusicOn, mBtnMusicOff, mBtnSaveOpt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        db = new MyDatabase(this);
 
         saveGameStatus = new SaveStatus(getSharedPreferences("game status",MODE_PRIVATE));
 
         song= MediaPlayer.create(MainActivity.this,R.raw.home_sound);
         song.setLooping(true);
         if(saveGameStatus.isMusicOn())
-        song.start();
+            song.start();
+
+//        Ranking ranking = new Ranking();
+//        ranking.setmId(1);
+//        ranking.setmName("Thang");
+//        ranking.setmTime("21");
+//        lists.add(ranking);
+//        ranking = (Ranking) getIntent().getExtras().getSerializable("record");
+//        lists.add(ranking);
 
         sound = SoundManager.getInstance();
         sound.init(this);
@@ -51,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnHome = (Button)findViewById(R.id.btn_home);
         mBtnHelp = (Button)findViewById(R.id.btn_help);
         mBtnOption = (Button)findViewById(R.id.btn_option);
+        mBtnRanking = (Button)findViewById(R.id.btn_ranking);
     }
 
     public void setClickListener(){
@@ -58,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnOption.setOnClickListener(this);
         mBtnHelp.setOnClickListener(this);
         mBtnHome.setOnClickListener(this);
+        mBtnRanking.setOnClickListener(this);
     }
 
     @Override
@@ -74,15 +95,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_help:
                 sound.playSound(R.raw.button_effect);
+                helpDialog();
                 break;
             case R.id.btn_option:
                 sound.playSound(R.raw.button_effect);
-                dialogOption();
+                //dialogOption();
+                //alertBuilder();
+                break;
+            case R.id.btn_ranking:
+                sound.playSound(R.raw.button_effect);
+                rankingDialog();
+
                 break;
 
         }
     }
 
+    public void rankingDialog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.ranking_dialog);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+        mLvResult = (ListView)dialog.findViewById(R.id.lv_ranking);
+        //lists = db.getAllRankings();
+
+        rankingAdapter = new RankingAdapter(lists,getApplicationContext());
+        mLvResult.setAdapter(rankingAdapter);
+
+        db.close();
+
+        Button btnBack = (Button)dialog.findViewById(R.id.btn_back_ranking);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+
+    public void helpDialog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.help_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+    }
     public  void  dialogOption() {
         final Dialog dialog = new Dialog(this);
 
@@ -192,4 +253,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode== 1 && resultCode == RESULT_OK) {
+            Ranking ranking = (Ranking) data.getExtras().getSerializable("record");
+            Log.d("check","value" + ranking.getmName() + "-" + ranking.getmTime());
+            lists.add(ranking);
+        }
+    }
 }

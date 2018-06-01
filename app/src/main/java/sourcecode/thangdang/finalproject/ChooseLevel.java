@@ -53,45 +53,43 @@ public class ChooseLevel extends AppCompatActivity implements View.OnClickListen
             case R.id.btn_level_one:
                 song.stop();
                 Intent intent = new Intent(this,LevelOneActivity.class);
-                startActivityForResult(intent,Configs.REQ_CODE_CHOOSE_LEVEL);
+                startActivityForResult(intent,Configs.REQ_CODE_CHOOSE_LEVEL_ONE);
                 break;
 
             case R.id.btn_level_two:
                 try {
-//                    Bundle packBundle = getExtra.getBundleExtra("package");
-//                    canAccessLevel2 = packBundle.getBoolean("checkFinishLevel1");
-
                     if(canAccessLevel2) {
                         Intent intentTwo = new Intent(this, LevelTwoActivity.class);
                         this.startActivity(intentTwo);
                     }
                 }catch (Exception e){}
-                Log.d("check","thang: " + canAccessLevel2);
                 break;
             case R.id.btn_level_three:
-                if(canAccessLevel3){
-                    Intent intentThree = new Intent(this,LevelThreeActivity.class);
-                    this.startActivity(intentThree);
-                }
+                try {
+                    if(canAccessLevel3) {
+                        Intent intentThree = new Intent(this, LevelThreeActivity.class);
+                        this.startActivity(intentThree);
+                    }
+                }catch (Exception e){}
                 break;
-            case R.id.btn_level_four:
-                if(canAccessLevel4) {
-                    Intent intentFour = new Intent(this, LevelFourActivity.class);
-                    this.startActivity(intentFour);
-                }
-                break;
-            case R.id.btn_level_five:
-                if(canAccessLevel5) {
-                    Intent intentFive = new Intent(this, LevelOneActivity.class);
-                    this.startActivity(intentFive);
-                }
-                break;
+//            case R.id.btn_level_four:
+//                if(canAccessLevel4) {
+//                    Intent intentFour = new Intent(this, LevelFourActivity.class);
+//                    this.startActivity(intentFour);
+//                }
+//                break;
+//            case R.id.btn_level_five:
+//                if(canAccessLevel5) {
+//                    Intent intentFive = new Intent(this, LevelOneActivity.class);
+//                    this.startActivity(intentFive);
+//                }
+//                break;
         }
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
-        if (requestCode == Configs.REQ_CODE_CHOOSE_LEVEL) {
+        if (requestCode == Configs.REQ_CODE_CHOOSE_LEVEL_ONE) {
             // Make sure the request was successful
             try {
                 canAccessLevel2 = data.getBooleanExtra("package",false);
@@ -100,5 +98,15 @@ public class ChooseLevel extends AppCompatActivity implements View.OnClickListen
             }
 
         }
+        if (requestCode == Configs.REQ_CODE_CHOOSE_LEVEL_TWO) {
+            // Make sure the request was successful
+            try {
+                canAccessLevel3 = data.getBooleanExtra("package",false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 }

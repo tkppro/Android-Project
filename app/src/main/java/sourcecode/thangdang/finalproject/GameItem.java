@@ -36,13 +36,7 @@ public class GameItem {
     }
 
     public void isTouching() {
-
         sound.playSound(idSound);
-//        dialog = new Dialog(context);
-//       // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        dialog.setTitle(text);
-//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        dialog.show();
     }
 
     public String getText() {

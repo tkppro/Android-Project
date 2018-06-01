@@ -47,6 +47,10 @@ public class SoundManager {
         _instance.addSound(R.raw.mirror);
         _instance.addSound(R.raw.toilet);
         _instance.addSound(R.raw.tooth_brush);
+//        _instance.addSound(R.raw.bed);
+//        _instance.addSound(R.raw.pillow);
+//        _instance.addSound(R.raw.curtain);
+//        _instance.addSound(R.raw.lamp);
 
 
         // add sounds here

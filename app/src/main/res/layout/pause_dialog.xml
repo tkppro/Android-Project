@@ -10,6 +10,19 @@
     android:background="@drawable/pause_dialog">
 
     <Button
+        android:id="@+id/btn_tip"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/tip_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <Button
         android:id="@+id/btn_resume"
         android:layout_width="170dp"
         android:layout_height="80dp"

@@ -6,14 +6,11 @@
     android:layout_height="match_parent"
 
     tools:context="sourcecode.thangdang.finalproject.LevelOneActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-    </LinearLayout>
+
     <android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bathroom_level">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bathroom_level">
 
         <Button
             android:id="@+id/btn_item3"
@@ -25,46 +22,43 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/btn_item1"
-        android:layout_width="40dp"
-        android:layout_height="93dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="192dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bathroom_toothbrush"
-        android:textColor="#f33"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        <Button
+            android:id="@+id/btn_item1"
+            android:layout_width="40dp"
+            android:layout_height="93dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="192dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bathroom_toothbrush"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55" />
 
-    <Button
-        android:id="@+id/btn_item4"
-        android:layout_width="136dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bathroom_sink"
-        android:textColor="#0080ff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597" />
+        <Button
+            android:id="@+id/btn_item4"
+            android:layout_width="136dp"
+            android:layout_height="76dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="248dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bathroom_sink"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.597" />
 
-    <Button
-        android:id="@+id/btn_item2"
-        android:layout_width="150dp"
-        android:layout_height="181dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bathroom_toilet"
-        android:textColor="#00fd33"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901" />
+        <Button
+            android:id="@+id/btn_item2"
+            android:layout_width="150dp"
+            android:layout_height="181dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bathroom_toilet"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.901" />
 
         <TextView
             android:id="@+id/tv_result"
@@ -102,16 +96,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btn_tip"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/tip_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/tip_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

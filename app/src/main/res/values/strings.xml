@@ -1,12 +1,18 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">English for Kids</string>
     <string name="item_1_lv1">Tìm bàn chải đánh răng</string>
     <string name="item_2_lv1">Tìm cái bồn cầu</string>
     <string name="item_3_lv1">Tìm cái gương</string>
     <string name="item_4_lv1">Tìm cái bồn rửa tay</string>
+
     <string name="item_1_lv2">Tìm cái giường</string>
     <string name="item_2_lv2">Tìm cái rèm cửa</string>
     <string name="item_3_lv2">Tìm cái đèn</string>
     <string name="item_4_lv2">Tìm cái gối</string>
+
+    <string name="item_1_lv3">Tìm những quyển sách</string>
+    <string name="item_2_lv3">Tìm cái ghế nệm</string>
+    <string name="item_3_lv3">Tìm cái kệ</string>
+    <string name="item_4_lv3">Tìm cái tivi</string>
 
 </resources>

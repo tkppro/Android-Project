@@ -2,7 +2,6 @@ package sourcecode.thangdang.finalproject;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,7 +11,6 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -98,7 +96,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
         if(!isFinishing())
             dialog.show();
 
-        song = MediaPlayer.create(this,R.raw.sound_lose);
+        song = MediaPlayer.create(this,R.raw.lose_sound);
         song.start();
 
         Button btnReplay = (Button)dialog.findViewById(R.id.btn_replay);
@@ -137,6 +135,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem1.isTouching();
                 if(percent <= 100) {
                     percent += 25;
+                    mBtnItem1.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -147,6 +146,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem2.isTouching();
                 if(percent <= 100) {
                     percent += 25;
+                    mBtnItem2.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -157,6 +157,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem3.isTouching();
                 if(percent <= 100) {
                     percent += 25;
+                    mBtnItem3.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -167,6 +168,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem4.isTouching();
                 if(percent <= 100) {
                     percent += 25;
+                    mBtnItem4.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -289,6 +291,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void winDialog(){
+        song.stop();
+
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.win_dialog);
@@ -298,6 +302,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnClickL
             dialog.show();
             isFinish = true;
         }
+
+        song = MediaPlayer.create(this,R.raw.win_sound);
+        song.start();
+
         Button btnMenu = (Button) dialog.findViewById(R.id.btn_menu);
         Button btnNextLevel = (Button) dialog.findViewById(R.id.btn_next);
         TextView tv = (TextView)dialog.findViewById(R.id.tv_time_win);

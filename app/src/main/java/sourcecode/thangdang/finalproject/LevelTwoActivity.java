@@ -30,10 +30,10 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_two);
 
-        mGameItem1 = new GameItem(this,mBtnItem1, this.getResources().getString(R.string.item_1_lv2), R.raw.tooth_brush);
-        mGameItem2 = new GameItem(this,mBtnItem2, this.getResources().getString(R.string.item_2_lv2),R.raw.toilet);
-        mGameItem3 = new GameItem(this,mBtnItem3, this.getResources().getString(R.string.item_3_lv2),R.raw.mirror);
-        mGameItem4 = new GameItem(this,mBtnItem4, this.getResources().getString(R.string.item_4_lv2),R.raw.sink);
+        mGameItem1 = new GameItem(this,mBtnItem1, this.getResources().getString(R.string.item_1_lv2), R.raw.bed_sound);
+        mGameItem2 = new GameItem(this,mBtnItem2, this.getResources().getString(R.string.item_2_lv2),R.raw.curtain_sound);
+        mGameItem3 = new GameItem(this,mBtnItem3, this.getResources().getString(R.string.item_3_lv2),R.raw.lamp_sound);
+        mGameItem4 = new GameItem(this,mBtnItem4, this.getResources().getString(R.string.item_4_lv2),R.raw.pillow_sound);
 
         init();
         setOnClick();
@@ -68,7 +68,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
         startTime(30000);
         percent = 0;
         isFinish = false;
-        song= MediaPlayer.create(this,R.raw.lv_1);
+        song= MediaPlayer.create(this,R.raw.lv_2);
         song.setLooping(true);
         song.start();
         mTvResult.setText(String.valueOf(percent) + "%");
@@ -86,7 +86,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
         if(!isFinishing())
             dialog.show();
 
-        song = MediaPlayer.create(this,R.raw.sound_lose);
+        song = MediaPlayer.create(this,R.raw.lose_sound);
         song.start();
 
         Button btnReplay = (Button)dialog.findViewById(R.id.btn_replay);
@@ -123,6 +123,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem1.isTouching();
                 if(percent <= 75) {
                     percent += 25;
+                    mBtnItem1.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -133,6 +134,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem2.isTouching();
                 if(percent <= 75) {
                     percent += 25;
+                    mBtnItem2.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -143,6 +145,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem3.isTouching();
                 if(percent <= 75) {
                     percent += 25;
+                    mBtnItem3.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -153,6 +156,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
                 mGameItem4.isTouching();
                 if(percent <= 75) {
                     percent += 25;
+                    mBtnItem4.setClickable(false);
                     mTvResult.setText(String.valueOf(percent) + "%");
                 }
                 else
@@ -273,6 +277,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void winDialog(){
+        song.stop();
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.win_dialog);
@@ -282,6 +287,9 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnClickL
             dialog.show();
             isFinish = true;
         }
+        song = MediaPlayer.create(this,R.raw.win_sound);
+        song.start();
+
         Button btnMenu = (Button) dialog.findViewById(R.id.btn_menu);
         Button btnNextLevel = (Button) dialog.findViewById(R.id.btn_next);
         TextView tv = (TextView)dialog.findViewById(R.id.tv_time_win);

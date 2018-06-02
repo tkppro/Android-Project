@@ -47,10 +47,16 @@ public class SoundManager {
         _instance.addSound(R.raw.mirror);
         _instance.addSound(R.raw.toilet);
         _instance.addSound(R.raw.tooth_brush);
-//        _instance.addSound(R.raw.bed);
-//        _instance.addSound(R.raw.pillow);
-//        _instance.addSound(R.raw.curtain);
-//        _instance.addSound(R.raw.lamp);
+        _instance.addSound(R.raw.bed_sound);
+        _instance.addSound(R.raw.pillow_sound);
+        _instance.addSound(R.raw.curtain_sound);
+        _instance.addSound(R.raw.lamp_sound);
+        _instance.addSound(R.raw.win_sound);
+        _instance.addSound(R.raw.books_sound);
+        _instance.addSound(R.raw.cushionseat_sound);
+        _instance.addSound(R.raw.shelves_sound);
+        _instance.addSound(R.raw.tv_sound);
+
 
 
         // add sounds here
